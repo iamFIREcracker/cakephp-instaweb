@@ -3,6 +3,9 @@ CakePHP Instaweb
 
 Instantly serves a CakePHP application (for development phase only).
 
+Now works with CakePHP 2.0
+
+
 Requirements
 ------------
 
