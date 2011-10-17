@@ -50,7 +50,7 @@ def main():
 
     def rewrite_rule(request):
         # Emulate Apache's mod_rewrite - if the file does not exist, then
-        # rewrite as a suffix to '/index.php?url='
+        # rewrite as a suffix to '/index.php'
         if not os.access("%s/%s" % (options.webroot, request.path), os.F_OK):
             request.uri = request.path
             request.postpath = ['index.php']
