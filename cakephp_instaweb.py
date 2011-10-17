@@ -40,7 +40,6 @@ def main():
         filter = find_php()
 
         def runProcess(self, env, request, qargs=[]):
-            env['SCRIPT_NAME'] = '/index.php'
             env['REDIRECT_STATUS'] = '200'
             twcgi.FilteredScript.runProcess(self, env, request, qargs)
 
