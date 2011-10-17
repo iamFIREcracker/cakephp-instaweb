@@ -96,7 +96,8 @@ def parse_options():
         help="interface to serve from (default: 127.0.0.1)",
         default="127.0.0.1")
     parser.add_option("-m", "--major-release", dest="major",
-        help="CakePHP major release", default="1.0")
+        help="CakePHP major release (default: 1.0)",
+        default="1.0")
     parser.add_option("-r", "--disable-rewrite", dest="rewrite",
         help="disable URL rewriting", action="store_false",
         default=True)
