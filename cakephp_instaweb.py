@@ -49,9 +49,12 @@ def main():
 
     def rewrite_rule(request):
         # Emulate Apache's mod_rewrite - if the file does not exist, then
-        # rewrite as a suffix to '/index.php'
+        # rewrite as a suffix to '/index.php?url=' if major is not '2'
         if not os.access("%s/%s" % (options.webroot, request.path), os.F_OK):
-            request.uri = request.path
+            if options.major == '2.0':
+                request.uri = request.path
+            else:
+                request.uri = "/index.php?url=%s" % request.path
             request.postpath = ['index.php']
         return request
 
@@ -92,6 +95,8 @@ def parse_options():
     parser.add_option("-i", "--interface", dest="interface",
         help="interface to serve from (default: 127.0.0.1)",
         default="127.0.0.1")
+    parser.add_option("-m", "--major-release", dest="major",
+        help="CakePHP major release", default="1.0")
     parser.add_option("-r", "--disable-rewrite", dest="rewrite",
         help="disable URL rewriting", action="store_false",
         default=True)
