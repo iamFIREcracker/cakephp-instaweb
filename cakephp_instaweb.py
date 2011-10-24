@@ -52,7 +52,7 @@ def main():
         # rewrite as a suffix to '/index.php?url=' if major is not '2'
         if not os.access("%s/%s" % (options.webroot, request.path), os.F_OK):
             if options.major == '2.0':
-                request.uri = request.path
+                pass
             else:
                 request.uri = "/index.php?url=%s" % request.path
             request.postpath = ['index.php']
